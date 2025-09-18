@@ -18,3 +18,9 @@ def test_invalid_password(driver):
     login_page.open()
     login_page.login("standard_user","wrong_pass")
     assert "Epic sadface" in driver.page_source
+
+def test_invalid_user(driver):
+    login_page = LoginPage(driver)
+    login_page.open()
+    login_page.login("wrong_user","secret_sauce")
+    assert "Epic sadface" in driver.page_source
